@@ -3,7 +3,7 @@ import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import { batchActions } from 'redux-batched-actions';
 
 import {store, AppState } from 'store';
-import * as counter from './counter';
+import * as channel from './channel';
 
 export type Command<A extends AnyAction, R, E = null> = ActionCreator<ThunkAction<R, AppState, E, A>>
 
@@ -14,7 +14,7 @@ export const batch = (actions: AnyAction[], type?: string) => {
 }
 
 const services = {
-    counter,
+    channel,
 };
 
 const createApi = (services: any, dispatch: any) => {

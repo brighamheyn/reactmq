@@ -1,8 +1,6 @@
 import React from 'react';
-
 import './style.scss';
 
-import Counter from 'features/counter';
 import Channel from 'features/channel';
 
 const App: React.FC = () => {

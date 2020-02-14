@@ -92,7 +92,7 @@ export const initialState: State = {
 }
 
 export const reducer: Reducer<State, AnyAction> = (state: State = initialState, action: AnyAction) => {
-    return produce(state, (draft: Draft<State>) => {
+    return produce<State>(state, (draft: Draft<State>) => {
             switch (action.type) {
             case "message.publish" : {
                 
