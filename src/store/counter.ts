@@ -31,12 +31,12 @@ export const reducer: Reducer<CounterState, AnyAction> = (state: CounterState = 
     return produce<CounterState>(state, (draft: Draft<CounterState>) => {
         switch (action.type) {
             case CounterActions.increment: {
-                state.count += action.step;
-                return state;
+                draft.count += action.step;
+                return draft;
             }
             case CounterActions.decrement: {
-                state.count -= action.step;
-                return state;
+                draft.count -= action.step;
+                return draft;
             }
             default: {
                 return state;
@@ -44,4 +44,3 @@ export const reducer: Reducer<CounterState, AnyAction> = (state: CounterState = 
         }
     });
 }
-

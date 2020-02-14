@@ -3,11 +3,12 @@ import React from 'react';
 import './style.scss';
 
 import Counter from 'features/counter';
+import Channel from 'features/channel';
 
 const App: React.FC = () => {
   return (
     <div className="h-100p w-100p bg-alabaster flex-col flex-1">
-      <Counter />
+      <Channel />
     </div>
   );
 }
