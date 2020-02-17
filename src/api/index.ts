@@ -9,6 +9,8 @@ export type Command<A extends AnyAction, R, E = null> = ActionCreator<ThunkActio
 
 export type Handler<A extends AnyAction, E = null> = ThunkDispatch<AppState, E, A>
 
+export type Method<A extends AnyAction, R, E = null> = (cmd: Command<A, R, E>) => [A, R]
+
 export const batch = (actions: AnyAction[], type?: string) => {
     return batchActions(actions, type);
 }

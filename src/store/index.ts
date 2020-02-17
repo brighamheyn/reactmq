@@ -2,10 +2,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { enableBatching } from 'redux-batched-actions';
 
-import * as Counter from './counter'
 import * as Channel from './channel';
-
-
 
 export type Guid = string;
 
@@ -21,19 +18,16 @@ export type Entity<T> = T & {id: Guid}
 
 export interface AppState
 {
-    counter: Counter.CounterState,
     channel: Channel.State,
 }
 
 const initialState: AppState = {
-    counter: Counter.initialState,
     channel: Channel.initialState,
 }
 
 const reduxDevTools = (window as any).__REDUX_DEVTOOLS_EXTENSION__;
 
 const rootReducer = combineReducers({
-    counter: Counter.reducer,
     channel: Channel.reducer,
 });
 

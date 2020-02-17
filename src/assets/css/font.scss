@@ -27,6 +27,10 @@
     font-size: unset !important;
 }
 
+.font-mono {
+    font-family: monospace;
+}
+
 $size: 8;
 @while $size <= 50 {
 

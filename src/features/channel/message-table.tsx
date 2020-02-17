@@ -11,7 +11,7 @@ const MessageTable: React.FC = () => {
 
     return (
         <div className="flex-col">
-            <div className="fs-2vh">CHANNEL</div>
+            <div className="fs-2vh">MESSAGES</div>
             <table>
                 <thead>
                     <tr>

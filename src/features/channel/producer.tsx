@@ -3,29 +3,30 @@ import { useDispatch } from 'react-redux';
 
 import { publish } from 'api/channel';
 
-const Producer: React.FC = () => {
+import JsonForm from 'features/json-form';
+
+const Producer: React.FC<{data?: any, exchange?: string, route?: string}> = ({data = "", exchange = "", route = ""}) => {
 
     const dispatch = useDispatch();
 
-    const [exchange, setExchange] = useState("");
+    let state = {data, exchange, route}
 
-    const [route, setRoute] = useState("");
+    const handleChange = (patch: {[key: string]: any}) => {
+        state = Object.assign({}, state, patch);
+    }
 
-    const [data, setData] = useState("");
+    const handleSubmit = () => {
+        let {data, exchange, route} = state;
+        dispatch(publish(data, exchange, route))
+    }
 
     return (
         <div className="flex-col">
-            <div>EVENT EMITTER</div>
-            <div className="p-2vh">
-                <input type="text" value={exchange} onChange={e => setExchange(e.target.value)} />
+            <div>PRODUCER</div>
+            <div>
+                <JsonForm data={{exchange, route, data}} onChange={handleChange} />
+                <button onClick={handleSubmit}>Submit</button>
             </div>
-            <div className="p-2vh">
-                <input type="text" value={route} onChange={e => setRoute(e.target.value)} />
-            </div>
-            <div className="p-2vh">
-                <input type="text" value={data} onChange={e => setData(e.target.value)} />
-            </div>
-            <button onClick={e => dispatch(publish(data, exchange, route))}>Send</button>
         </div>
         
     );
